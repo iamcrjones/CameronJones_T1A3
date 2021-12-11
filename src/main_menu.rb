@@ -1,4 +1,5 @@
 require_relative ("./startup.rb")
+require_relative ("./rules.rb")
 require ('tty-prompt')
 
 def main_menu
@@ -17,17 +18,12 @@ while answer != "Exit"
     when "Battle!"
         puts "Let the battle begin!!!"
     when "Rules"
-        puts "Rules will reside here"
+        rules
     else
-        exit_prompt.yes?("Are you sure you wish to exit?")
         puts "Goodbye for now!"
         sleep(0.75)
         system "clear"
         next
     end
 end
-
-# while menu_options != "Exit"
-#     puts "not exit"
-# end
 end
