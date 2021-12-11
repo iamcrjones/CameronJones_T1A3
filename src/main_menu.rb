@@ -1,4 +1,5 @@
 require_relative ("./startup.rb")
+require_relative ("./battle.rb")
 require_relative ("./rules.rb")
 require ('tty-prompt')
 
@@ -12,11 +13,10 @@ end
 answer = ''
 while answer != "Exit"
     answer = menu_options
-    exit_prompt = TTY::Prompt.new
     system "clear"
     case answer
     when "Battle!"
-        puts "Let the battle begin!!!"
+        battle
     when "Rules"
         rules
     else

@@ -11,3 +11,4 @@ class Monster
         return "#{@name} #{@health} #{@moves}"
     end
 end
+
