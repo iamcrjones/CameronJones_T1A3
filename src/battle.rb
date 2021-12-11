@@ -10,6 +10,11 @@ def critical_hit
     end
 end
 
+
+def prompt
+    prompt = TTY::Prompt.new
+end
+
 player_monster_selector = ""
 def choose_monster
     player_monster_selector = TTY::Prompt.new
@@ -25,6 +30,7 @@ def battle
     monster2 = Monster.new("Charmander", 100, moves_2)
     monster3 = Monster.new("Squirtle", 100, moves_3)
     monster_array = [monster1, monster2, monster3]
+    selected_monster = ""
     sleep(0.5)
     puts "Welcome to MY battle simulation, #{ARGV[0]}."
     sleep(1.5)
@@ -55,8 +61,5 @@ def battle
     sleep(0.5)
     loading_bar
     system "clear"
-    def player_turn
-
-    end
 end
 #battle
