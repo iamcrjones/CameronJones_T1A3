@@ -1,1 +1,4 @@
-#application will run through this file
+require_relative ("./startup.rb")
+require("colorize")
+require("colorized_string")
+seed
