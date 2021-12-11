@@ -52,11 +52,13 @@ if difficulty == "Hard"
     puts "Welcome, #{user}. Please wait while we initialize your program..."
     sleep(1)
     prepare_progress
+    sleep(0.5)
 else
     #No difficulty argument is specified
     system "clear"
     puts "Welcome, #{user}. Please wait while we initialize your program..."
     sleep(1)
     prepare_progress
+    sleep(0.5)
 end
 end
