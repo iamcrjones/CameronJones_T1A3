@@ -18,7 +18,14 @@ end
 player_monster_selector = ""
 def choose_monster
     player_monster_selector = TTY::Prompt.new
-    return player_monster_selector.select("Choose your monster to battle with, good luck...", ["Bulbasaur".colorize(:color => :black, :background => :green), "Charmander".colorize(:color => :black, :background => :light_red), "Squirtle".colorize(:color => :black, :background => :cyan)])
+    return player_monster_selector.select(
+        "Choose your monster to battle with, good luck...",
+        [
+            "Bulbasaur".colorize(:color => :black, :background => :green),
+            "Charmander".colorize(:color => :black, :background => :light_red),
+            "Squirtle".colorize(:color => :black, :background => :cyan)
+        ]
+    )
 end
 
 opponent_monster = ""
