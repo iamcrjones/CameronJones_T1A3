@@ -29,15 +29,18 @@ def choose_monster
 end
 
 opponent_monster = ""
-def battle
-    moves_1 = [{"Tackle" => 10}, {"Grass Whip" => 15}]
-    moves_2 = [{"Scratch" => 10}, {"Flamethrower" => 15}]
-    moves_3 = [{"Headbutt" => 10}, {"Watergun" => 15}]
+def battle_setup
+    moves_1 = {"Tackle" => 10, "Grass Whip" => 15}
+    moves_2 = {"Scratch" => 10, "Flamethrower" => 15}
+    moves_3 = {"Headbutt" => 10, "Watergun" => 15}
     monster1 = Monster.new("Bulbasaur", 100, moves_1)
     monster2 = Monster.new("Charmander", 100, moves_2)
     monster3 = Monster.new("Squirtle", 100, moves_3)
-    monster_array = [monster1, monster2, monster3]
-    selected_monster = ""
+    PlayerMonsterArray = [monster1, monster2, monster3]
+    monster1 = Monster.new("Bulbasaur", 100, moves_1)
+    monster2 = Monster.new("Charmander", 100, moves_2)
+    monster3 = Monster.new("Squirtle", 100, moves_3)
+    OpponentMonsterArray = [monster1, monster2, monster3]
     sleep(0.5)
     puts "Welcome to MY battle simulation, #{ARGV[0]}."
     sleep(1.5)
