@@ -16,7 +16,8 @@ while answer != "Exit"
     system "clear"
     case answer
     when "Battle!"
-        battle
+        monsters = battle_setup
+        battle(monsters[0], monsters[1])
     when "Rules"
         rules
     else
