@@ -3,14 +3,6 @@ require("tty-prompt")
 require_relative("./startup.rb")
 require_relative("./monster.rb")
 
-def critical_hit
-    crit = rand(1..100)
-    if crit <= 10
-        #selected move damage += 10
-    end
-end
-
-
 def prompt
     prompt = TTY::Prompt.new
 end
@@ -36,11 +28,12 @@ def battle_setup
     monster1 = Monster.new("Bulbasaur", 100, moves_1)
     monster2 = Monster.new("Charmander", 100, moves_2)
     monster3 = Monster.new("Squirtle", 100, moves_3)
-    PlayerMonsterArray = [monster1, monster2, monster3]
+    playerMonsterArray = [monster1, monster2, monster3]
     monster1 = Monster.new("Bulbasaur", 100, moves_1)
     monster2 = Monster.new("Charmander", 100, moves_2)
     monster3 = Monster.new("Squirtle", 100, moves_3)
-    OpponentMonsterArray = [monster1, monster2, monster3]
+    opponentMonsterArray = [monster1, monster2, monster3]
+
     sleep(0.5)
     puts "Welcome to MY battle simulation, #{ARGV[0]}."
     sleep(1.5)
@@ -53,17 +46,21 @@ def battle_setup
     case player_choice
     when "Bulbasaur".colorize(:color => :black, :background => :green)
         puts "You have selected Bulbasaur"
-        player_choice = monster_array[0]
+        player_choice = playerMonsterArray[0]
     when "Charmander".colorize(:color => :black, :background => :light_red)
         puts "You have selected Charmander"
-        player_choice = monster_array[1]
+        player_choice = playerMonsterArray[1]
     else
         puts "You have selected Squirtle"
-        player_choice = monster_array[2]
+        player_choice = playerMonsterArray[2]
     end
     sleep(1)
     puts ""
-    opponent_monster = monster_array.sample
+    opponent_monster = opponentMonsterArray.sample
+    if ARGV[1].capitalize == "Hard"
+        opponent_monster.max_health = (opponent_monster.max_health * 1.5).round
+        opponent_monster.health = (opponent_monster.health * 1.5).round
+    end
     puts "Your opponent has selected #{opponent_monster.name}"
     puts""
     sleep(1.5)
@@ -71,5 +68,43 @@ def battle_setup
     sleep(0.5)
     loading_bar
     system "clear"
+    return [player_choice, opponent_monster]
 end
-#battle
+
+def battle(player_choice, opponent_monster)
+    loop do
+        # Do the players turn
+        puts "Your Turn!"
+        sleep(0.75)
+        player_choice.show_health_bar
+        opponent_monster.show_health_bar
+        sleep(0.75)
+        move = player_choice.ask_moves
+        system "clear"
+
+        player_choice.use_move(move, opponent_monster)
+        system "clear"
+
+        # Check if player wins
+        if opponent_monster.health <= 0
+            puts "You Win! :("
+            sleep(1)
+            system "clear"
+            break
+        end
+
+        puts "Enemy's Turn!"
+        sleep(0.75)
+        move = opponent_monster.moves.keys.sample
+        opponent_monster.use_move(move, player_choice)
+        system "clear"
+
+        # Check is opponent wins
+        if player_choice.health <= 0
+            puts "You Lose! :("
+            sleep(1)
+            system "clear"
+            break
+        end
+    end
+end
