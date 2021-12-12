@@ -13,6 +13,16 @@ while ARGV.length == 0
         break
     end
 end
+while ARGV.length == 1
+    print "Press ENTER for easy mode, or type Hard to enable hard mode: "
+    mode = STDIN.gets
+    if mode == ""
+        next
+    else
+        ARGV[1] = mode
+        break
+    end
+end
 if ARGV.size > 0
     user = ARGV[0]
     difficulty = ARGV[1]
