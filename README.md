@@ -1,5 +1,9 @@
 # CameronJones_T1A3
 
+[Link to my repo](https://github.com/iamcrjones/CameronJones_T1A3)
+
+[Link to Trello board](https://trello.com/b/agY6uh5L/cameronjonest1a3)
+
 ## Purpose & Scope
 
 ### What the application will do:
