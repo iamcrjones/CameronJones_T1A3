@@ -10,3 +10,4 @@ gem 'colorize', '~> 0.8.1'
 gem "tty-progressbar"
 gem 'tty-cursor', '~> 0.7.1'
 gem 'tty-screen', '~> 0.8.1'
+gem "rspec"
