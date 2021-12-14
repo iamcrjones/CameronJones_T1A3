@@ -25,13 +25,13 @@ def battle_setup
     moves_1 = {"Tackle" => 10, "Grass Whip" => 15}
     moves_2 = {"Scratch" => 10, "Flamethrower" => 15}
     moves_3 = {"Headbutt" => 10, "Watergun" => 15}
-    monster1 = Monster.new("Bulbasaur", 100, moves_1)
-    monster2 = Monster.new("Charmander", 100, moves_2)
-    monster3 = Monster.new("Squirtle", 100, moves_3)
+    monster1 = Monster.new("Bulbasaur".colorize(:color => :black, :background => :green), 100, moves_1)
+    monster2 = Monster.new("Charmander".colorize(:color => :black, :background => :light_red), 100, moves_2)
+    monster3 = Monster.new("Squirtle".colorize(:color => :black, :background => :cyan), 100, moves_3)
     playerMonsterArray = [monster1, monster2, monster3]
-    monster1 = Monster.new("Bulbasaur", 100, moves_1)
-    monster2 = Monster.new("Charmander", 100, moves_2)
-    monster3 = Monster.new("Squirtle", 100, moves_3)
+    monster1 = Monster.new("Bulbasaur".colorize(:color => :black, :background => :green), 100, moves_1)
+    monster2 = Monster.new("Charmander".colorize(:color => :black, :background => :light_red), 100, moves_2)
+    monster3 = Monster.new("Squirtle".colorize(:color => :black, :background => :cyan), 100, moves_3)
     opponentMonsterArray = [monster1, monster2, monster3]
 
     sleep(0.5)
@@ -45,14 +45,14 @@ def battle_setup
     player_choice = choose_monster
     case player_choice
     when "Bulbasaur".colorize(:color => :black, :background => :green)
-        puts "You have selected Bulbasaur"
         player_choice = playerMonsterArray[0]
+        puts "You have selected #{player_choice.name}"
     when "Charmander".colorize(:color => :black, :background => :light_red)
-        puts "You have selected Charmander"
         player_choice = playerMonsterArray[1]
+        puts "You have selected #{player_choice.name}"
     else
-        puts "You have selected Squirtle"
         player_choice = playerMonsterArray[2]
+        puts "You have selected #{player_choice.name}"
     end
     sleep(1)
     puts ""
@@ -87,7 +87,7 @@ def battle(player_choice, opponent_monster)
 
         # Check if player wins
         if opponent_monster.health <= 0
-            puts "You Win! :("
+            puts "You Win! :D"
             sleep(1)
             system "clear"
             break
