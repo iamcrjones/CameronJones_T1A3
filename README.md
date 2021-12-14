@@ -25,3 +25,18 @@ I am developing this application to solve the problem of boredom and also to int
 The target audience for this application is people looking for some form of entertainment in the means of a small quick game.
 
 A member of the target audience would use this application to pass the time and also to understand the basic concept of a pokemon-style battle.
+
+### Main features
+#### Main Menu
+
+The first feature that is within this application is the main menu. Before accessing the main menu, the user must enter a username and difficulty in order for the application to proceed. The main menu functions as case statement inside a loop once it is loaded which will be active for the entire time of the application running and will only break when the user selects "Exit" in the main menu to close the application. The main menu also contains a list of rules explaining how the game functions and the main battle feature.
+
+The idea behind coding the main menu by calling methods is to keep the code clean and organized as it only has to run 3 methods total.
+
+#### Battle Setup
+
+The battle setup is the beginning of the main battle feature. It is where all of the methods regarding the monster selection process is called for the game. This includes assigning the variables of the selections of monsters and is returned in an array to then be used as the arguments for the main battle in order to keep the selections correct. The user has the ability to choose one of the three different monsters through the means of a selection prompt with TTY Prompt. This fits the old pokemon aesthetics of a Gameboy and also helps with error handling as the user only has the ability to choose from the set list as opposed to typing in a text input which can result in higher chances of user error.
+
+#### Main Battle
+
+Once the battle setup phase is complete, the actual battle with commence which is the main feature of this application. It is all contained within a loop as the user and the computer cycle through turns, the program checks if either side has reached zero health in order to break the loop and display a message saying wether the user has won or lost. As with majority of the application, error handling is done through the use of TTY Prompt as it prevents incorrect inputs and suits the theme of the app. If the difficulty argument is set to Hard, it multiplies the health value of the opposing monster by 1.5x, making it much more difficult as in order to win, the user must be lucky with the critical hit RNG. Afterwards the application with loop back to the main menu, giving the user the option to play the game and battle again, or to exit the application.
