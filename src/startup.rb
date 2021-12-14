@@ -27,7 +27,9 @@ if ARGV.size > 0
     user = ARGV[0]
     difficulty = mode
 end
-
+if ARGV.size == 2
+    difficulty = ARGV[1].capitalize
+end
 def loading_bar
     loading = TTY::ProgressBar.new("[:bar]", total: 20)
     20.times do
