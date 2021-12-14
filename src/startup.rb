@@ -14,7 +14,7 @@ while ARGV.length == 0
     end
 end
 while ARGV.length < 2
-    print "Type (Easy/Hard) to select difficulty level: "
+    print "Type (Normal/Hard) to select difficulty level: "
     mode = STDIN.gets.chomp
     if mode == ""
         next
@@ -54,7 +54,7 @@ def prepare_progress
     system "clear"
 end
 #Hard difficulty selected as argument
-if difficulty.capitalize == "Hard"
+if difficulty == "Hard"
     puts "Activating #{difficulty} mode..."
     sleep(0.5)
     loading_bar
