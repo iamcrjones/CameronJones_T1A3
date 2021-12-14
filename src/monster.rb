@@ -22,7 +22,8 @@ class Monster
     def use_move(move, enemy_monster)
         # Print the name of the monster and move
         puts "#{@name} used #{move}"
-        sleep(0.75)
+        puts ""
+        sleep(1)
 
         # Figure out how much damage the move does
         damage = @moves[move]
@@ -33,18 +34,19 @@ class Monster
         # If it should crit print that out and set the new damage
         if should_crit
             puts "It was a critical hit!"
-            sleep(0.75)
+            sleep(1)
             damage = (damage * 1.5).round
         end
 
         # Print how much damage it does
         puts "#{@name} does #{damage} damage"
-        sleep(0.75)
+        sleep(1)
 
         # Deal the damage to the enemy monster and show it's health
+        puts ""
         enemy_monster.health -= damage
         enemy_monster.show_health_bar
-        sleep(1)
+        sleep(1.5)
     end
 
     def ask_moves

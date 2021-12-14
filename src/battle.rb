@@ -77,8 +77,10 @@ def battle(player_choice, opponent_monster)
         puts "Your Turn!"
         sleep(0.75)
         player_choice.show_health_bar
+        puts ""
         opponent_monster.show_health_bar
-        sleep(0.75)
+        sleep(1)
+        puts ""
         move = player_choice.ask_moves
         system "clear"
 
@@ -94,7 +96,7 @@ def battle(player_choice, opponent_monster)
         end
 
         puts "Enemy's Turn!"
-        sleep(0.75)
+        sleep(1)
         move = opponent_monster.moves.keys.sample
         opponent_monster.use_move(move, player_choice)
         system "clear"
