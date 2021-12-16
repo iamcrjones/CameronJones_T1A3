@@ -26,7 +26,7 @@ The target audience for this application is people looking for some form of ente
 
 A member of the target audience would use this application to pass the time and also to understand the basic concept of a pokemon-style battle.
 
-### Main features
+## Main features
 #### Main Menu
 
 The first feature that is within this application is the main menu. Before accessing the main menu, the user must enter a username and difficulty in order for the application to proceed. The main menu functions as case statement inside a loop once it is loaded which will be active for the entire time of the application running and will only break when the user selects "Exit" in the main menu to close the application. The main menu also contains a list of rules explaining how the game functions and the main battle feature.
@@ -40,3 +40,7 @@ The battle setup is the beginning of the main battle feature. It is where all of
 #### Main Battle
 
 Once the battle setup phase is complete, the actual battle with commence which is the main feature of this application. It is all contained within a loop as the user and the computer cycle through turns, the program checks if either side has reached zero health in order to break the loop and display a message saying wether the user has won or lost. As with majority of the application, error handling is done through the use of TTY Prompt as it prevents incorrect inputs and suits the theme of the app. If the difficulty argument is set to Hard, it multiplies the health value of the opposing monster by 1.5x, making it much more difficult as in order to win, the user must be lucky with the critical hit RNG. Afterwards the application with loop back to the main menu, giving the user the option to play the game and battle again, or to exit the application.
+
+## Flow Diagram
+
+![Diagram](./docs/Flow_Diagram.jpeg)
