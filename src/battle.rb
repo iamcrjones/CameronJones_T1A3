@@ -78,6 +78,7 @@ def battle(player_choice, opponent_monster)
         sleep(0.75)
         player_choice.show_health_bar
         puts ""
+        puts "Opponent's Monster:"
         opponent_monster.show_health_bar
         sleep(1)
         puts ""

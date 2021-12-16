@@ -51,7 +51,7 @@ class Monster
 
     def ask_moves
         moves = TTY::Prompt.new
-        return moves.select("Which move you like to use", @moves.keys)
+        return moves.select("Which move would you like to use?", @moves.keys)
     end
 
     def show_health_bar
