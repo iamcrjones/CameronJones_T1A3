@@ -72,6 +72,7 @@ def battle_setup
 end
 
 def battle(player_choice, opponent_monster)
+    finish_message = TTY::Font.new(:doom)
     loop do
         # Do the players turn
         puts "Your Turn!"
@@ -90,8 +91,11 @@ def battle(player_choice, opponent_monster)
 
         # Check if player wins
         if opponent_monster.health <= 0
-            puts "You Win! :D"
+            puts finish_message.write("You Win!")
             sleep(1)
+            puts ""
+            print "Press any key to return to menu..."
+            STDIN.getch
             system "clear"
             break
         end
@@ -104,8 +108,11 @@ def battle(player_choice, opponent_monster)
 
         # Check is opponent wins
         if player_choice.health <= 0
-            puts "You Lose! :("
+            puts finish_message.write("You Lose!")
             sleep(1)
+            puts ""
+            print "Press any key to return to menu..."
+            STDIN.getch
             system "clear"
             break
         end
