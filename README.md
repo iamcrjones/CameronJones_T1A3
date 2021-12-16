@@ -4,6 +4,27 @@
 
 [Link to Trello board](https://trello.com/b/agY6uh5L/cameronjonest1a3)
 
+## Installation and Requirements
+
+This application was built and tested using Ruby version 3.0.0 on macOS version 11.6.
+If you are encountering errors with ruby, please install version 3.0.0
+
+
+### Installing Ruby
+
+You can follow a well written guide to installing Ruby by clicking [Here](https://www.ruby-lang.org/en/documentation/installation/)
+
+### Running this application
+
+In order to run this application, download this repository onto your computer and extract the zip file to the desired location on your drive.
+
+From here you will open your terminal of choice and navigate to the directory and enter the folder named "src".
+
+In your terminal, enter the command "./runme.sh" followed by a username you would like to set for yourself, followed by "Normal" or "Hard" to select your difficulty. If you do not enter a username or difficulty you will be prompted to do so as the application will not commence otherwise.
+
+Press "Enter" to run the file and it will install everything needed by ruby to run the application and will then begin.
+
+I hope you like my app!
 ## Purpose & Scope
 
 ### What the application will do:
