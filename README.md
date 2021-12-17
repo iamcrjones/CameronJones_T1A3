@@ -20,9 +20,15 @@ In order to run this application, download this repository onto your computer an
 
 From here you will open your terminal of choice and navigate to the directory and enter the folder named "src".
 
-In your terminal, enter the command "./runme.sh" followed by a username you would like to set for yourself, followed by "Normal" or "Hard" to select your difficulty. If you do not enter a username or difficulty you will be prompted to do so as the application will not commence otherwise.
+In your terminal, enter the command `./runme.sh` followed by a username you would like to set for yourself, followed by `Normal` or `Hard` to select your difficulty. If you do not enter a username or difficulty you will be prompted to do so as the application will not commence otherwise.
 
-Press "Enter" to run the file and it will install everything needed by ruby to run the application and will then begin.
+Press `Enter` to run the file and it will install everything needed by ruby to run the application and will then begin.
+
+If you are receiving permissions errors when the script is trying to install Bundler, please enter the following command into your terminal before running the script:
+
+`sudo gem install bundle`
+
+This should allow the bundle gem to be installed successfully to that directory and then load the Gemfile to install everything else needed.
 
 I hope you like my app!
 ## Purpose & Scope
@@ -62,6 +68,38 @@ The battle setup is the beginning of the main battle feature. It is where all of
 
 Once the battle setup phase is complete, the actual battle with commence which is the main feature of this application. It is all contained within a loop as the user and the computer cycle through turns, the program checks if either side has reached zero health in order to break the loop and display a message saying wether the user has won or lost. As with majority of the application, error handling is done through the use of TTY Prompt as it prevents incorrect inputs and suits the theme of the app. If the difficulty argument is set to Hard, it multiplies the health value of the opposing monster by 1.5x, making it much more difficult as in order to win, the user must be lucky with the critical hit RNG. Afterwards the application with loop back to the main menu, giving the user the option to play the game and battle again, or to exit the application.
 
+#### Critical Hits
+
+Critical hits is a feature that functions behind the scenes as there isn't a way for the user to physically access this feature, it happens automatically. When either the user, or the computer chooses a move for their monster to attack with, there is a random number generator that runs and if the generated number is within a certain range, it then displays a message stating that they have landed a critical hit. If a move is a critical hit, then the damage value of the selected move is multiplied by 1.5x and then rounded to the nearest whole number with the .round method.
+
 ## Flow Diagram
 
 ![Diagram](./docs/Flow_Diagram.jpeg)
+
+## User interaction outline
+
+For all of the features in this application, the user is either guided through the features, or they are happening automatically without relying upon the user.
+
+If command line arguments have not been set by the user when running the script file, they will be prompted to do so and the application will not proceed unless they do so.
+
+After command line arguments have been set the application then loads into the main menu. From here I have made use of TTY Prompt extensively for the use of all menu navigation which in turn eliminates mitigates all forms of user error as they are only able to select from the options provided to them.
+
+The main menu and battle components are the main features of this application. The main menu is accessed by the user simply entering valid command line arguments and they have access to this feature. The way they find out how to use this feature is through TTY Prompt as it has the built in function of informing the user to navigate the selection with the arrow keys and pressing enter to confirm their selection.
+
+Both the battle setup and the main part of the battle make use of the same error handling and explanation of how to interact with them as the main menu through TTY Prompt's default functions
+
+## Credits and Ethical issues
+
+### Use of an existing IP names
+
+In this application I have made use of names from the Pokemon franchise which are under copyright. This application was for an assessment piece for my studies and is in no way to be used commercially under any circumstances. Any copyrighted material belongs to their respective owners.
+
+Eventually I plan to develop this app further and will change the names to ensure that there is nothing used that belongs to any other IP.
+
+### Credits to gem authors
+
+TTY Prompt, Font, Cursor, Screen, and Progress Bar: https://ttytoolkit.org/
+Colorize ruby gem: https://github.com/fazibear/colorize
+rspec used for testing purposes: https://rubygems.org/gems/rspec/versions/3.5.0
+rake used as a requirement for other gems to function: https://rubygems.org/gems/rake
+

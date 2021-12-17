@@ -8,6 +8,8 @@ while ARGV.length == 0
     name = gets.chomp
     if name == ""
         next
+    elsif name.strip.empty?
+        next
     else
         ARGV[0] = name
         break
@@ -27,8 +29,15 @@ if ARGV.size > 0
     user = ARGV[0]
     difficulty = mode
 end
-if ARGV.size == 2
-    difficulty = ARGV[1].capitalize
+while ARGV.size == 2
+    if ARGV[1].capitalize != "Hard" && ARGV[1].capitalize != "Normal"
+        print "Enter a valid difficulty level (Normal/Hard): "
+        ARGV[1] = STDIN.gets.chomp
+        next
+    else
+        difficulty = ARGV[1].capitalize
+        break
+    end
 end
 def loading_bar
     loading = TTY::ProgressBar.new("[:bar]", total: 20)
