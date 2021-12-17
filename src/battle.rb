@@ -28,11 +28,11 @@ def battle_setup
     monster1 = Monster.new("Bulbasaur".colorize(:color => :black, :background => :green), 100, moves_1)
     monster2 = Monster.new("Charmander".colorize(:color => :black, :background => :light_red), 100, moves_2)
     monster3 = Monster.new("Squirtle".colorize(:color => :black, :background => :cyan), 100, moves_3)
-    playerMonsterArray = [monster1, monster2, monster3]
+    player_monster_array = [monster1, monster2, monster3]
     monster1 = Monster.new("Bulbasaur".colorize(:color => :black, :background => :green), 100, moves_1)
     monster2 = Monster.new("Charmander".colorize(:color => :black, :background => :light_red), 100, moves_2)
     monster3 = Monster.new("Squirtle".colorize(:color => :black, :background => :cyan), 100, moves_3)
-    opponentMonsterArray = [monster1, monster2, monster3]
+    opponent_monster_array = [monster1, monster2, monster3]
 
     sleep(0.5)
     puts "Welcome to MY battle simulation, #{ARGV[0]}."
@@ -45,18 +45,18 @@ def battle_setup
     player_choice = choose_monster
     case player_choice
     when "Bulbasaur".colorize(:color => :black, :background => :green)
-        player_choice = playerMonsterArray[0]
+        player_choice = player_monster_array[0]
         puts "You have selected #{player_choice.name}"
     when "Charmander".colorize(:color => :black, :background => :light_red)
-        player_choice = playerMonsterArray[1]
+        player_choice = player_monster_array[1]
         puts "You have selected #{player_choice.name}"
     else
-        player_choice = playerMonsterArray[2]
+        player_choice = player_monster_array[2]
         puts "You have selected #{player_choice.name}"
     end
     sleep(1)
     puts ""
-    opponent_monster = opponentMonsterArray.sample
+    opponent_monster = opponent_monster_array.sample
     if ARGV[1].capitalize == "Hard"
         opponent_monster.max_health = (opponent_monster.max_health * 1.5).round
         opponent_monster.health = (opponent_monster.health * 1.5).round
