@@ -2,7 +2,7 @@ system "clear"
 require("tty-progressbar")
 
 def seed
-#Makes sure user enters a username with at least one character
+#Makes sure user enters a username with at least one character other than spaces
 while ARGV.length == 0
     print "Enter a valid user name: "
     name = gets.chomp
@@ -15,6 +15,7 @@ while ARGV.length == 0
         break
     end
 end
+#If no second argument entered, then user will be prompted to enter difficulty
 while ARGV.length < 2
     print "Type (Normal/Hard) to select difficulty level: "
     mode = STDIN.gets.chomp
@@ -25,10 +26,12 @@ while ARGV.length < 2
         break
     end
 end
+#Assigns command line arguments to variables
 if ARGV.size > 0
     user = ARGV[0]
     difficulty = mode
 end
+#If user has entered a difficulty but is not correctly typed, they are propmpted to enter it correctly
 while ARGV.size == 2
     if ARGV[1].capitalize != "Hard" && ARGV[1].capitalize != "Normal"
         print "Enter a valid difficulty level (Normal/Hard): "
@@ -46,7 +49,7 @@ def loading_bar
         loading.advance  # by default increases by 1
       end
  end
-
+#Loading progress to appear that app takes time to load for user experience
 def prepare_progress
     puts "Setting up the battlefield..."
     sleep(0.5)

@@ -48,12 +48,12 @@ class Monster
         enemy_monster.show_health_bar
         sleep(1.5)
     end
-
+    #Move selection prompt
     def ask_moves
         moves = TTY::Prompt.new
         return moves.select("Which move would you like to use?", @moves.keys)
     end
-
+    #Displays a healthbar with the current health
     def show_health_bar
         health_bar = TTY::ProgressBar.new("#{@name} :current/:total HP [:bar]", total: @max_health, width: 20)
         health_bar.current = @health

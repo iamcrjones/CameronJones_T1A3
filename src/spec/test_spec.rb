@@ -12,8 +12,9 @@ describe "Test Monster object" do
         expect(monster.moves).to eq(moves)
         expect(monster.critical_chance).to eq(critical_chance)
     end
-
-    it "should use moves correctly" do
+end
+describe "Test monster moves" do
+    it "should use moves correctly and monster 2 should have health reduced correctly" do
         monster1 = Monster.new('m1', 100, {'tackle' => 15})
         monster2 = Monster.new('m2', 100, {})
         monster1.use_move('tackle', monster2)

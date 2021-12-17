@@ -5,7 +5,7 @@ require ('tty-prompt')
 require ('tty-font')
 
 def main_menu
-
+#Prompt to display menu options
 def menu_options
     main_menu_header = TTY::Font.new(:doom)
     puts main_menu_header.write("Terminal Monsters")
@@ -13,6 +13,7 @@ def menu_options
     main_menu_prompt = TTY::Prompt.new
     return main_menu_prompt.select("What would you like to do?", ["Battle!", "Rules", "Exit"])
 end
+#Loop for the main menu application which calls rules and battle and also exits app
 answer = ''
 while answer != "Exit"
     answer = menu_options

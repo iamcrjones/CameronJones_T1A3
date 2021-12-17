@@ -6,7 +6,7 @@ require_relative("./monster.rb")
 def prompt
     prompt = TTY::Prompt.new
 end
-
+#Prompt for player selecting monster
 player_monster_selector = ""
 def choose_monster
     player_monster_selector = TTY::Prompt.new
@@ -21,14 +21,18 @@ def choose_monster
 end
 
 opponent_monster = ""
+#Battle setup calls all methods and returns player and opponent monsters
 def battle_setup
+    #Monster data
     moves_1 = {"Tackle" => 10, "Grass Whip" => 15}
     moves_2 = {"Scratch" => 10, "Flamethrower" => 15}
     moves_3 = {"Headbutt" => 10, "Watergun" => 15}
+    #Monsters for player array
     monster1 = Monster.new("Bulbasaur".colorize(:color => :black, :background => :green), 100, moves_1)
     monster2 = Monster.new("Charmander".colorize(:color => :black, :background => :light_red), 100, moves_2)
     monster3 = Monster.new("Squirtle".colorize(:color => :black, :background => :cyan), 100, moves_3)
     player_monster_array = [monster1, monster2, monster3]
+    #Mnsters for opponent array
     monster1 = Monster.new("Bulbasaur".colorize(:color => :black, :background => :green), 100, moves_1)
     monster2 = Monster.new("Charmander".colorize(:color => :black, :background => :light_red), 100, moves_2)
     monster3 = Monster.new("Squirtle".colorize(:color => :black, :background => :cyan), 100, moves_3)
@@ -43,6 +47,7 @@ def battle_setup
     sleep(1.5)
     puts ""
     player_choice = choose_monster
+    #Case for when each option from selection prompt is selected to assign to player
     case player_choice
     when "Bulbasaur".colorize(:color => :black, :background => :green)
         player_choice = player_monster_array[0]
@@ -56,6 +61,7 @@ def battle_setup
     end
     sleep(1)
     puts ""
+    #Opponent randomly assigned monster from array
     opponent_monster = opponent_monster_array.sample
     if ARGV[1].capitalize == "Hard"
         opponent_monster.max_health = (opponent_monster.max_health * 1.5).round
@@ -70,7 +76,7 @@ def battle_setup
     system "clear"
     return [player_choice, opponent_monster]
 end
-
+#Main battle flow defined here
 def battle(player_choice, opponent_monster)
     finish_message = TTY::Font.new(:doom)
     loop do
@@ -100,7 +106,7 @@ def battle(player_choice, opponent_monster)
             system "clear"
             break
         end
-
+        #Oponnent turn which selects move at random from assigned monster
         puts "Enemy's Turn!"
         sleep(1)
         move = opponent_monster.moves.keys.sample
