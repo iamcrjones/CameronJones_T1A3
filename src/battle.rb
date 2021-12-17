@@ -96,6 +96,7 @@ def battle(player_choice, opponent_monster)
             puts ""
             print "Press any key to return to menu..."
             STDIN.getch
+            sleep(0.5)
             system "clear"
             break
         end
@@ -113,6 +114,7 @@ def battle(player_choice, opponent_monster)
             puts ""
             print "Press any key to return to menu..."
             STDIN.getch
+            sleep(0.5)
             system "clear"
             break
         end
