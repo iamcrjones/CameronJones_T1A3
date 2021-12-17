@@ -76,6 +76,12 @@ Critical hits is a feature that functions behind the scenes as there isn't a way
 
 ![Diagram](./docs/Flow_Diagram.jpeg)
 
+## Trello Screenshots
+
+![December 9th](./docs/Trello_Screenshots/21-12-09.png)
+![December 12th](./docs/Trello_Screenshots/21-12-12.png)
+![December 17th](./docs/Trello_Screenshots/21-12-17.png)
+
 ## User interaction outline
 
 For all of the features in this application, the user is either guided through the features, or they are happening automatically without relying upon the user.
